@@ -35,7 +35,7 @@ function Libray() {
             </option>
           ))}
       </select>
-      <div></div>
+      <div>状態管理</div>
       <button>
         <a href="/monster">モンスターの詳細</a>
       </button>
