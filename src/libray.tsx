@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import useStore from "./store";
 
 const url = "https://pokeapi.co/api/v2/pokemon/ditto";
 
 function Libray() {
   const [pkname, setPkname] = useState([]);
+  const setPkData = useStore((state) => state.setPkData);
   async function poke() {
     const res = await fetch(url);
     const current = await res.json();
     const pkData = current.game_indices;
-    console.log(pkData);
+    // console.log(pkData);
     const pkDataName = pkData.reduce((p: any[], c: any) => {
       p.push(c.version.name);
       return p;
@@ -23,11 +26,22 @@ function Libray() {
   useEffect(() => {
     poke();
   });
+  const selecter = useRef(null);
+
+  const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    // console.log(e);
+    // console.log(e.target.value);
+    const select = e.target.value;
+    // if (selecter.current.value === select) {
+    //   console.log(select);
+    // }
+    setPkData(select);
+  };
 
   return (
     <div>
       <h1>pokemon図鑑</h1>
-      <select>
+      <select onChange={(e) => change(e)} ref={selecter}>
         {pkname &&
           pkname.map((series, i) => (
             <option className="names" key={i}>
@@ -35,9 +49,10 @@ function Libray() {
             </option>
           ))}
       </select>
-      <div>状態管理</div>
       <button>
-        <a href="/monster">モンスターの詳細</a>
+        <Link to={"/monster"}>
+          <a>モンスターの詳細</a>
+        </Link>
       </button>
     </div>
   );

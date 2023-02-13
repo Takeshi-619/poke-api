@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Monster.scss";
+import { useLocation } from "react-router-dom";
+import useStore from "./store";
 
 type Poke = {
   name: any;
@@ -10,10 +12,11 @@ type Poke = {
 
 function Monster() {
   const [poke, setPoke] = useState<Poke[]>([]);
+  const pkData = useStore((state) => state.pkData);
 
   const fetchPokemon = () => {
     const promises = [];
-    for (let i = 1; i < 9; i++) {
+    for (let i = 1; i < 10; i++) {
       const url = `https:pokeapi.co/api/v2/pokemon/${i}`;
       promises.push(fetch(url).then((res) => res.json()));
     }
@@ -47,6 +50,7 @@ function Monster() {
         </ul>
       </div>
       <div id="poke_container" className="poke_container"></div>
+      <div>{pkData}</div>
     </div>
   );
 }
