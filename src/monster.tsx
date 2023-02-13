@@ -51,6 +51,7 @@ function Monster() {
       </div>
       <div id="poke_container" className="poke_container"></div>
       <div>{pkData}</div>
+      <hr />
     </div>
   );
 }
