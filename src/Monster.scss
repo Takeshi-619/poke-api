@@ -56,3 +56,49 @@ h1 {
   text-align: center;
   font-size: 54px;
 }
+
+.card-content {
+  width: 40%;
+  margin: 0 auto;
+  .card-image-detail {
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+  }
+  .card-stats {
+    margin: 0 auto;
+    h2 {
+      text-align: center;
+    }
+    p {
+      text-align: left;
+    }
+    .stats-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      font-weight: bold;
+      span {
+        margin: 0 auto;
+      }
+    }
+  }
+  .content-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+.btn-content {
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid #213547;
+  width: 10%;
+  padding: 8px 16px;
+  border-radius: 50px;
+  a {
+    color: #213547;
+    text-decoration: none;
+  }
+}
