@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Monster.scss";
-import { useLocation } from "react-router-dom";
 import useStore from "./store";
+import { useNavigate } from "react-router-dom";
 
 type Poke = {
-  name: any;
-  id: any;
-  image: any;
-  type: any;
+  name: string;
+  id: string;
+  image: string;
+  type: string;
 };
 
 function Monster() {
   const [poke, setPoke] = useState<Poke[]>([]);
-  const pkData = useStore((state) => state.pkData);
+  const { pkData, setDetail } = useStore((state) => state);
+  const navigate = useNavigate();
 
   const fetchPokemon = () => {
     const promises = [];
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i < 50; i++) {
       const url = `https:pokeapi.co/api/v2/pokemon/${i}`;
       promises.push(fetch(url).then((res) => res.json()));
     }
@@ -36,12 +37,21 @@ function Monster() {
 
   fetchPokemon();
 
+  const toDetail = (id: string) => {
+    setDetail(id);
+    navigate(`/detail`);
+  };
+
   return (
     <div>
+      <h1>pokemon図鑑</h1>
       <div className="container">
         <ul id="pokedex">
           {poke.map((pokemon, index) => (
-            <li className="card" key={index}>
+            <li
+              className="card"
+              key={index}
+              onClick={() => toDetail(pokemon.id)}>
               <img className="card-image" src={pokemon.image} />
               <h2 className="card-title">{pokemon.name}</h2>
               <p className="card-subtitle">Type: {pokemon.type}</p>
@@ -50,8 +60,6 @@ function Monster() {
         </ul>
       </div>
       <div id="poke_container" className="poke_container"></div>
-      <div>{pkData}</div>
-      <hr />
     </div>
   );
 }

@@ -29,12 +29,7 @@ function Libray() {
   const selecter = useRef(null);
 
   const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    // console.log(e);
-    // console.log(e.target.value);
     const select = e.target.value;
-    // if (selecter.current.value === select) {
-    //   console.log(select);
-    // }
     setPkData(select);
   };
 

@@ -4,6 +4,7 @@ import App from "./App";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Libray from "./libray";
 import Monster from "./monster";
+import Detail from "./Detail";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <Route path="/" element={<App />}></Route>
         <Route path="/Libray" element={<Libray />}></Route>
         <Route path="/Monster" element={<Monster />}></Route>
+        <Route path="/detail" element={<Detail />}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
