@@ -1,10 +1,17 @@
-import React from "react";
+import { MouseParallax } from "react-just-parallax";
 
-function Btn({ href }: { href: string }) {
+type Props = {
+  href: string;
+  text: string;
+};
+
+function Btn({ href, text }: Props) {
   return (
-    <div className="btn-content">
-      <a href={href}>Get Start</a>
-    </div>
+    <MouseParallax>
+      <div className="btn-content">
+        <a href={href}>{text}</a>
+      </div>
+    </MouseParallax>
   );
 }
 

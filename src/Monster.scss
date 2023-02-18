@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 body {
   background: #efefbb;
   background: linear-gradient(to right, #d4d3dd, #efefbb);
@@ -56,18 +63,30 @@ h1 {
   text-align: center;
   font-size: 54px;
 }
+h2 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 24px;
+}
 
 .card-content {
-  width: 40%;
+  width: 90%;
   margin: 0 auto;
-  .card-image-detail {
-    width: 40%;
-    display: block;
-    margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+  .monster {
+    width: 30%;
+    .card-image-detail {
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
   }
   .card-stats {
-    margin: 0 auto;
-    h2 {
+    width: 30%;
+    h3 {
       text-align: center;
     }
     p {
@@ -76,29 +95,54 @@ h1 {
     .stats-content {
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-between;
       font-weight: bold;
-      span {
-        margin: 0 auto;
-      }
     }
   }
   .content-flex {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 }
 
 .btn-content {
   margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  border-radius: 50%;
   text-align: center;
-  border: 1px solid #213547;
-  width: 10%;
-  padding: 8px 16px;
-  border-radius: 50px;
+  transition: 2s;
+  background: linear-gradient(45deg, #3baee39e, #9844b794, #44ea7694);
+  background-size: 200% 200%; /*サイズを大きくひきのばす*/
+  animation: bggradient 15s ease infinite;
+  animation: bggradient 15s ease infinite;
   a {
-    color: #213547;
+    color: #fff;
     text-decoration: none;
+    position: relative;
+    transition: 2s;
+    a::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 10px;
+      border-bottom: 1px solid #000;
+      border-right: 1px solid #000;
+      transform: skew(45deg);
+    }
+  }
+}
+
+@keyframes bggradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

@@ -44,24 +44,26 @@ export default function Detail() {
   }, []);
   return (
     <>
-      <h1>{detailId}</h1>
+      <h2>{detailId}</h2>
       {poke &&
         poke.map((i, index) => (
           <div key={index} className="card-content">
-            <img className="card-image-detail" src={i.image} />
-            <h2 className="card-title">{i.name}</h2>
-            <p className="card-subtitle content-flex">
-              <h2>Ability</h2>
-              <span>:</span>
-              {i.ability}
-            </p>
-            <p className="card-subtitle content-flex">
-              <h2>Type</h2>
-              <span>:</span>
-              {i.type}
-            </p>
+            <div className="monster">
+              <img className="card-image-detail" src={i.image} />
+              <h3 className="card-title">{i.name}</h3>
+              <p className="card-subtitle content-flex">
+                <h3>Ability</h3>
+                <span>:</span>
+                {i.ability}
+              </p>
+              <p className="card-subtitle content-flex">
+                <h3>Type</h3>
+                <span>:</span>
+                {i.type}
+              </p>
+            </div>
             <div className="card-stats">
-              <h2>Stats</h2>
+              <h3>Stats</h3>
               {i.stats
                 .reduce((pre: any, cur: any, index: any) => {
                   pre.push({
@@ -73,13 +75,14 @@ export default function Detail() {
                 .map((item: any, i: any) => (
                   <div key={i} className="stats-content">
                     <p className="first-p">{item.stat}</p>
-                    <span>:</span>
+
                     <p className="sec-p">{item.num}</p>
                   </div>
                 ))}
             </div>
           </div>
         ))}
+      <Btn href={"/Monster"} text={"Back"} />
     </>
   );
 }
