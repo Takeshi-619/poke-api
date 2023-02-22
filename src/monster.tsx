@@ -43,9 +43,9 @@ function Monster() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>pokemon図鑑</h1>
-      <div className="container">
+      <div className="poke-container">
         <ul id="pokedex">
           {poke.map((pokemon, index) => (
             <li
@@ -59,7 +59,6 @@ function Monster() {
           ))}
         </ul>
       </div>
-      <div id="poke_container" className="poke_container"></div>
     </div>
   );
 }

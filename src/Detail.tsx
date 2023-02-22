@@ -44,13 +44,15 @@ export default function Detail() {
   }, []);
   return (
     <>
-      <h2>{detailId}</h2>
       {poke &&
         poke.map((i, index) => (
           <div key={index} className="card-content">
             <div className="monster">
               <img className="card-image-detail" src={i.image} />
-              <h3 className="card-title">{i.name}</h3>
+              <h3 className="card-title">
+                <span>NO.{detailId}</span>
+                {i.name}
+              </h3>
               <p className="card-subtitle content-flex">
                 <h3>Ability</h3>
                 <span>:</span>
@@ -82,7 +84,14 @@ export default function Detail() {
             </div>
           </div>
         ))}
-      <Btn href={"/Monster"} text={"Back"} />
+      <div className="btn-wrap">
+        <h1 className="btn-title">
+          <div>Back</div>
+          <div>to</div>
+          <div>Monster</div>
+        </h1>
+        <Btn href={`/monster`} allow={"←"}></Btn>
+      </div>
     </>
   );
 }

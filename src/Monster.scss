@@ -16,57 +16,68 @@ body {
   background: linear-gradient(to right, #d4d3dd, #efefbb);
   font-family: "Lato", sans-serif;
   color: #213547;
+  position: relative;
+  .btn-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .btn-title {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+  }
 }
 
-.card {
-  list-style: none;
-  padding: 40px;
-  background-color: #ffffff;
-  color: #000000;
-  display: grid;
-  border-radius: 10%;
-}
-
-.card-title {
-  text-transform: uppercase;
-  font-size: 32px;
-  font-weight: normal;
-  margin-bottom: 0;
-  text-align: center;
-}
-
-.card-subtitle {
-  font-weight: lighter;
-  color: #000000;
-  margin-top: 5px;
-  text-align: center;
-}
-
-.card-image {
-  height: 180px;
-  margin: 0 auto;
-}
 #pokedex {
   padding-inline-start: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 20px;
+  .card {
+    list-style: none;
+    padding: 40px;
+    background-color: #ffffff;
+    color: #000000;
+    display: grid;
+    border-radius: 10%;
+    .card-image {
+      height: 180px;
+      margin: 0 auto;
+    }
+    .card-title {
+      text-transform: uppercase;
+      font-size: 32px;
+      font-weight: normal;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    .card-subtitle {
+      font-weight: lighter;
+      color: #000000;
+      margin-top: 5px;
+      text-align: center;
+    }
+  }
 }
 
 .container {
   padding: 40px;
   margin: 0 auto;
-}
-
-h1 {
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 54px;
-}
-h2 {
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 24px;
+  h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 48px;
+  }
+  .poke-container {
+    h2 {
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 24px;
+    }
+  }
 }
 
 .card-content {
@@ -79,14 +90,20 @@ h2 {
   .monster {
     width: 30%;
     .card-image-detail {
-      width: 100%;
+      width: 80%;
       display: block;
       margin: 0 auto;
+    }
+    .card-title {
+      span {
+        margin-right: 16px;
+      }
     }
   }
   .card-stats {
     width: 30%;
     h3 {
+      margin: 16%;
       text-align: center;
     }
     p {
@@ -97,6 +114,9 @@ h2 {
       align-items: center;
       justify-content: space-between;
       font-weight: bold;
+      p {
+        height: 100%;
+      }
     }
   }
   .content-flex {
@@ -117,9 +137,10 @@ h2 {
   background: linear-gradient(45deg, #3baee39e, #9844b794, #44ea7694);
   background-size: 200% 200%; /*サイズを大きくひきのばす*/
   animation: bggradient 15s ease infinite;
-  animation: bggradient 15s ease infinite;
   a {
+    font-size: 32px;
     color: #fff;
+    display: block;
     text-decoration: none;
     position: relative;
     transition: 2s;
@@ -145,4 +166,33 @@ h2 {
   100% {
     background-position: 0% 50%;
   }
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  gap: 12px;
+}
+
+li {
+  list-style-type: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 30px;
+  color: black;
+  font-weight: bold;
+}
+
+.selected {
+  background: linear-gradient(red 46%, black 46%, black 54%, white 54%);
 }

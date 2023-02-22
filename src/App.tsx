@@ -5,7 +5,14 @@ function App() {
     <div className="App">
       <div>
         <h1>ポケモン図鑑でパートナーを見つけよう</h1>
-        <Btn href={`/monster`} text={"Get Start"}></Btn>
+
+        <div className="btn-wrap">
+          <h1 className="btn-title">
+            <div>Get</div>
+            <div>Start</div>
+          </h1>
+          <Btn href={`/monster`} allow={"→"}></Btn>
+        </div>
       </div>
     </div>
   );
