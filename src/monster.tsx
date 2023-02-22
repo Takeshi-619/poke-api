@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Monster.scss";
 import useStore from "./store";
 import { useNavigate } from "react-router-dom";
