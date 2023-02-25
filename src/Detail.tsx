@@ -55,12 +55,12 @@ export default function Detail() {
               </h3>
               <p className="card-subtitle content-flex">
                 <h3>Ability</h3>
-                <span>:</span>
+
                 {i.ability}
               </p>
               <p className="card-subtitle content-flex">
                 <h3>Type</h3>
-                <span>:</span>
+
                 {i.type}
               </p>
             </div>

@@ -74,7 +74,7 @@ function Monster() {
         nextLabel={">"}
         breakLabel={"..."}
         pageCount={Math.ceil(poke.length / perPage)}
-        marginPagesDisplayed={2} // 一番最初と最後を基準にして、そこからいくつページ数を表示するか
+        marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={handlePageChange}
       />
