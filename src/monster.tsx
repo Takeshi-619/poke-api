@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Monster.scss";
 import useStore from "./store";
 import { useNavigate } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 
 type Poke = {
   name: string;
@@ -17,7 +18,7 @@ function Monster() {
 
   const fetchPokemon = () => {
     const promises = [];
-    for (let i = 1; i < 50; i++) {
+    for (let i = 1; i < 100; i++) {
       const url = `https:pokeapi.co/api/v2/pokemon/${i}`;
       promises.push(fetch(url).then((res) => res.json()));
     }
@@ -42,12 +43,21 @@ function Monster() {
     navigate(`/detail`);
   };
 
+  const [offset, setOffset] = useState(0);
+  const perPage: number = 8;
+
+  const handlePageChange = (data: { [x: string]: any }) => {
+    console.log(data);
+    let page_number = data["selected"]; // クリックした部分のページ数が{selected: 2}のような形で返ってくる
+    setOffset(page_number * perPage);
+  };
+
   return (
     <div className="container">
       <h1>pokemon図鑑</h1>
       <div className="poke-container">
         <ul id="pokedex">
-          {poke.map((pokemon, index) => (
+          {poke.slice(offset, offset + perPage).map((pokemon, index) => (
             <li
               className="card"
               key={index}
@@ -59,6 +69,15 @@ function Monster() {
           ))}
         </ul>
       </div>
+      <ReactPaginate
+        previousLabel={"<"}
+        nextLabel={">"}
+        breakLabel={"..."}
+        pageCount={Math.ceil(poke.length / perPage)}
+        marginPagesDisplayed={2} // 一番最初と最後を基準にして、そこからいくつページ数を表示するか
+        pageRangeDisplayed={5}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 }
