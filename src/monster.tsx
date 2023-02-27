@@ -18,7 +18,7 @@ function Monster() {
 
   const fetchPokemon = () => {
     const promises = [];
-    for (let i = 1; i < 100; i++) {
+    for (let i = 1; i < 120; i++) {
       const url = `https:pokeapi.co/api/v2/pokemon/${i}`;
       promises.push(fetch(url).then((res) => res.json()));
     }
@@ -62,7 +62,11 @@ function Monster() {
               className="card"
               key={index}
               onClick={() => toDetail(pokemon.id)}>
-              <img className="card-image" src={pokemon.image} />
+              <img
+                className="card-image"
+                src={pokemon.image}
+                alt="monsters image"
+              />
               <h2 className="card-title">{pokemon.name}</h2>
               <p className="card-subtitle">Type: {pokemon.type}</p>
             </li>
