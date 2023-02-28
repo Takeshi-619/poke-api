@@ -1,6 +1,5 @@
 import { useState } from "react";
-import "./Monster.scss";
-import useStore from "./store";
+import useStore from "../store";
 import { useNavigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 

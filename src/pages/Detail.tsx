@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import useStore from "./store";
-import Btn from "./com/Btn";
+import useStore from "../store";
+import Btn from "../com/Btn";
 
 type Poke = {
   name: string;
@@ -48,7 +48,7 @@ export default function Detail() {
         poke.map((i, index) => (
           <div key={index} className="card-content">
             <div className="monster">
-              <img className="card-image-detail" src={i.image} />
+              <img className="card-image-detail" src={i.image} alt="" />
               <h3 className="card-title">
                 <span>NO.{detailId}</span>
                 {i.name}
