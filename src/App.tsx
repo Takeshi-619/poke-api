@@ -1,4 +1,5 @@
 import Btn from "./com/Btn";
+import ".Monster.scss";
 
 function App() {
   return (
