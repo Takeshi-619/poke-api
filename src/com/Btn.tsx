@@ -1,4 +1,5 @@
 import { MouseParallax } from "react-just-parallax";
+import { Link } from "react-router-dom";
 
 type Props = {
   href: string;
@@ -9,7 +10,9 @@ function Btn({ href, allow }: Props) {
   return (
     <MouseParallax>
       <div className="btn-content">
-        <a href={href}>{allow}</a>
+        <Link to={href}>
+          <a>{allow}</a>
+        </Link>
       </div>
     </MouseParallax>
   );
