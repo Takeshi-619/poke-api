@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useStore from "../store";
 import Btn from "../com/Btn";
 
@@ -53,16 +53,16 @@ export default function Detail() {
                 <span>NO.{detailId}</span>
                 {i.name}
               </h3>
-              <p className="card-subtitle content-flex">
+              <div className="card-subtitle content-flex">
                 <h3>Ability</h3>
 
                 {i.ability}
-              </p>
-              <p className="card-subtitle content-flex">
+              </div>
+              <div className="card-subtitle content-flex">
                 <h3>Type</h3>
 
                 {i.type}
-              </p>
+              </div>
             </div>
             <div className="card-stats">
               <h3>Stats</h3>
@@ -75,11 +75,11 @@ export default function Detail() {
                   return pre;
                 }, [])
                 .map((item: any, i: any) => (
-                  <div key={i} className="stats-content">
+                  <span key={i} className="stats-content">
                     <p className="first-p">{item.stat}</p>
 
                     <p className="sec-p">{item.num}</p>
-                  </div>
+                  </span>
                 ))}
             </div>
           </div>

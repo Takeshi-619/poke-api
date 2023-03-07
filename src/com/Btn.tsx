@@ -10,9 +10,7 @@ function Btn({ href, allow }: Props) {
   return (
     <MouseParallax>
       <div className="btn-content">
-        <Link to={href}>
-          <a>{allow}</a>
-        </Link>
+        <Link to={href}>{allow}</Link>
       </div>
     </MouseParallax>
   );
